@@ -1,1 +1,28 @@
-<p>button works!</p>
+<input type="hidden" #selection>
+
+<button [disabled]="EstaDisabilitado" [style.background-color]="cor" (click)="trocaCor()">Botao</button>
+<button (click)="interruptor()"> Interruptor</button>
+<button (click)="trocaCorAuto()"> Troca cor</button>
+<button (click)="exibirId($event.target.id)" id="SOCORRO"> exibir Id</button>
+
+
+
+<div>
+  <div (click)="selection.value = 'carro'">
+    Carro
+  </div>
+  <div (click)="selection.value = 'moto'">
+    Moto
+  </div>
+  <div (click)="selection.value = 'aviao'">
+    Avião
+  </div>
+</div>
+
+<div class="terminal" [ngSwitch]="selection.value">
+  <pre *ngSwitchDefault>nVAI PÁ ONDE?</pre>
+  <pre *ngSwitchCase="'carro'">Rooooommm</pre>
+  <pre *ngSwitchCase="'moto'">Ran dAM DAM DAM</pre>
+  <pre *ngSwitchCase="'aviao'">Zooom</pre>
+
+</div>
